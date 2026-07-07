@@ -8,121 +8,164 @@
     <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jersey+20&display=swap" rel="stylesheet"> 
     <link rel="icon" href="/favicon.png">
    <style>
+      :root {
+        --bg: #050505;
+        --text: #f2f2f2;
+        --muted: #c8c8c8;
+        --accent: #72a105;
+        --panel: #0f0f0f;
+        --border: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
-        background-color: black;
-        color: white;
+        margin: 0;
+        background-color: var(--bg);
+        color: var(--text);
         font-family: "Jersey 20", sans-serif;
         font-weight: 400;
         font-style: normal;
       }
 
+      main {
+        width: min(1100px, 94vw);
+        margin: 0 auto;
+      }
+
       #logo {
-        color: #72a105;
-        font-size: 90px;
+        color: var(--accent);
+        font-size: clamp(60px, 11vw, 110px);
+        letter-spacing: 1px;
         text-align: center;
-        height: 90%;
+        min-height: 48vh;
         display: flex;
         justify-content: center;
         align-items: center;
         font-family: "Jacquard 12", system-ui;
         font-weight: 400;
         font-style: normal;
-        background-image: url("fourier-background.jpg");
-        background-size: 100%;
+        background-image: linear-gradient(to bottom, rgba(5, 5, 5, 0.45), rgba(5, 5, 5, 0.88)), url("fourier-background.jpg");
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-color: rgba(0,0,0,0.8);
-        background-blend-mode: darken;
-        
+        border-bottom: 1px solid var(--border);
       }
 
       #subtext {
-        font-size: 20px;
+        font-size: 28px;
+        margin-top: 36px;
+        margin-bottom: 20px;
       }
 
-      #concludingbox {
-        padding-top: 50px;
+      #release-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 20px;
+      }
+
+      .release {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+        border: 1px solid var(--border);
+        padding: 10px;
+      }
+
+      .release img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        transition: transform 120ms ease-out;
+      }
+
+      .release:hover img {
+        transform: translateY(-2px);
+      }
+
+      .artist {
+        margin-top: 10px;
+        font-size: 22px;
       }
 
       a {
-        color: rgb(197, 196, 196);
+        color: var(--muted);
       }
 
-      table {
-        width: 99vw;
-        display: block;
-        overflow-y:scroll
+      a:hover {
+        color: var(--text);
+      }
+
+      #concludingbox {
+        margin: 46px 0 56px;
+        max-width: 70ch;
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      @media (max-width: 640px) {
+        #subtext {
+          font-size: 24px;
+        }
+
+        #concludingbox {
+          font-size: 22px;
+        }
       }
     </style>
   </head>
   <body>
-    <div id="logo"> fourier records</div>
-    <div id="subtext"> Recent Releases
-      <br>
-      <table>
-        <tr>
-          <td>
-            <a href="https://distrokid.com/hyperfollow/aerialsilence/super-indie-chick">
-              <img src="indie.png" height="300px" alt="Super Indie Chick">
-            </a>
-          </td>
-          <td>
-            <a href="https://distrokid.com/hyperfollow/enochseal/cant-lose-you-again">
-              <img src="cantloseyouagain_art.png" height="300px" alt="Can't Lose You Again">
-            </a>
-          </td>
-          <td>
-            <a href="https://distrokid.com/hyperfollow/josiahbruner/while-he-sleeps-feat-bekah-bruner">
-              <img src="whsart.png" height="300px" alt="While He Sleeps">
-            </a>
-          </td>
-          <td>
-            <a href="https://ffm.to/omc">
-              <img src="omc_artwork.png" height="300px" alt="Our Mind's Circus">
-            </a>
-          </td>
-          <td>
-            <a href="https://distrokid.com/hyperfollow/josiahbruner/sortition">
-              <img src="sortitionart.png" height="300px" alt="Sortition">
-            </a>
-          </td>
-          <td>
-            <a href="https://distrokid.com/hyperfollow/josiahbruner/no-one-cares-that-you-do-2">
-              <img src="nooneart.png" height="300px" alt="No One Cares That You do">
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="https://www.facebook.com/profile.php?id=61591688846848">Aerial Silence</a>
-          </td>
-          <td>
-            <a href="https://sites.google.com/view/enochseal">Enoch Seal</a>
-          </td>
-          <td>
-            <a href="https://music.josiahbruner.com">Josiah Bruner</a>
-          </td>
-          <td>
-            <a href="https://www.composedthoughts.com">Composed Thoughts</a>
-          </td>
-          <td>
-            <a href="https://music.josiahbruner.com">Josiah Bruner</a>
-          </td>
-          <td>
-            <a href="https://music.josiahbruner.com">Josiah Bruner</a>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div id="concludingbox">
-      Fourier Records is a record label and audio mixing company based in Michigan.
-      We support independent artists by providing mixing, mastering, and legal
-      services while requiring almost nothing of the artist. Our mission is to
-      encourage art to prevail in the Michigan music scene.
-      <br>
-      <br>
-      Get in contact with us by emailing <a href="mailto:josiah@fouriersounds.com">josiah@fouriersounds.com</a>
-      </a>
-    </div>
+    <div id="logo">fourier records</div>
+    <main>
+      <div id="subtext">Recent Releases</div>
+      <section id="release-grid">
+        <article class="release">
+          <a href="https://distrokid.com/hyperfollow/aerialsilence/super-indie-chick">
+            <img src="indie.png" alt="Super Indie Chick">
+          </a>
+          <div class="artist"><a href="https://www.facebook.com/profile.php?id=61591688846848">Aerial Silence</a></div>
+        </article>
+        <article class="release">
+          <a href="https://distrokid.com/hyperfollow/enochseal/cant-lose-you-again">
+            <img src="cantloseyouagain_art.png" alt="Can't Lose You Again">
+          </a>
+          <div class="artist"><a href="https://sites.google.com/view/enochseal">Enoch Seal</a></div>
+        </article>
+        <article class="release">
+          <a href="https://distrokid.com/hyperfollow/josiahbruner/while-he-sleeps-feat-bekah-bruner">
+            <img src="whsart.png" alt="While He Sleeps">
+          </a>
+          <div class="artist"><a href="https://music.josiahbruner.com">Josiah Bruner</a></div>
+        </article>
+        <article class="release">
+          <a href="https://ffm.to/omc">
+            <img src="omc_artwork.png" alt="Our Mind's Circus">
+          </a>
+          <div class="artist"><a href="https://www.composedthoughts.com">Composed Thoughts</a></div>
+        </article>
+        <article class="release">
+          <a href="https://distrokid.com/hyperfollow/josiahbruner/sortition">
+            <img src="sortitionart.png" alt="Sortition">
+          </a>
+          <div class="artist"><a href="https://music.josiahbruner.com">Josiah Bruner</a></div>
+        </article>
+        <article class="release">
+          <a href="https://distrokid.com/hyperfollow/josiahbruner/no-one-cares-that-you-do-2">
+            <img src="nooneart.png" alt="No One Cares That You do">
+          </a>
+          <div class="artist"><a href="https://music.josiahbruner.com">Josiah Bruner</a></div>
+        </article>
+      </section>
+      <div id="concludingbox">
+        Fourier Records is a record label and audio mixing company based in Michigan.
+        We support independent artists by providing mixing, mastering, and legal
+        services while requiring almost nothing of the artist. Our mission is to
+        encourage art to prevail in the Michigan music scene.
+        <br>
+        <br>
+        Get in contact with us by emailing <a href="mailto:josiah@fouriersounds.com">josiah@fouriersounds.com</a>
+      </div>
+    </main>
   </body>
 </html>
